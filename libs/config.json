@@ -1,0 +1,100 @@
+{
+  "airline": [
+    {
+      "id": "1",
+      "code": "CA",
+      "name": "国航",
+      "url": "http://www.airchina.com.cn/cn/index.shtml"
+    },
+    {
+      "id": "2",
+      "code": "HU",
+      "name": "海航",
+      "url": "http://new.hnair.com/hainanair/ibe/common/flightSearch.do"
+    },
+    {
+      "id": "3",
+      "code": "MU",
+      "name": "东航",
+      "url": "http://www.ceair.com/booking/{0}-{1}-{2}_CNY.html"
+    },
+    {
+      "id": "4",
+      "code": "CZ",
+      "name": "南航",
+      "url": "http://b2c.csair.com/B2C40/modules/bookingnew/main/flightSelectDirect.html?t=S&c1={0}&c2={1}&d1={2}&at=1&ct=0&it=0"
+    },
+    {
+      "id": "5",
+      "code": "ZH",
+      "name": "深圳",
+      "url": "http://www.shenzhenair.com"
+    },
+    {
+      "id": "6",
+      "code": "MF",
+      "name": "厦门",
+      "url": "https://et.xiamenair.com/xiamenair/book/findFlights.action?lang=zh&tripType=0&queryFlightInfo={0},{1},{2}"
+    },
+    {
+      "id": "7",
+      "code": "EU",
+      "name": "成都",
+      "url": "http://b2c.cdal.com.cn/euair/page/reservation/flightQuery.jsp"
+    },
+    {
+      "id": "8",
+      "code": "JD",
+      "name": "首都",
+      "url": "http://www.jdair.net/b2c-flight/searchflight.action?&tripType=OW&orgCity={0}&dstCity={1}&flightDate={2}&returnDate="
+    },
+    {
+      "id": "9",
+      "code": "HO",
+      "name": "吉祥",
+      "url": "http://www.juneyaoair.com/pages/Flight/flight.aspx?flightType=OW&sendCity={0}&sendCode={1}&arrCity={2}&arrCode={3}&directType=N&tripType=D&departureDate={4}&returnDate={4}"
+    },
+    {
+      "id": "10",
+      "code": "8L",
+      "name": "祥鹏",
+      "url": "http://www.luckyair.net"
+    },
+    {
+      "id": "11",
+      "code": "BK",
+      "name": "奥凯",
+      "url": "http://bk.travelsky.com/bkair/index.jsp"
+    },
+    {
+      "id": "12",
+      "code": "9C",
+      "name": "春秋",
+      "url": "https://flights.ch.com/SHA-KMG.html?Departure={0}&Arrival={1}&FDate={2}&RetDate={3}&ANum=1&CNum=0&INum=0&MType=0&IfRet=false&SType=01&IsEmployee=false&isBg=false&IsJC=false"
+    },
+    {
+      "id": "13",
+      "code": "3U",
+      "name": "四川",
+      "url": "http://www.sichuanair.com/3uair/ibe/common/homeRedirect.do"
+    },
+    {
+      "id": "14",
+      "code": "GJ",
+      "name": "长龙",
+      "url": "https://www.loongair.cn/ETicket/AirlineList.html"
+    },
+    {
+      "id": "15",
+      "code": "AQ",
+      "name": "九元",
+      "url": "http://www.9air.com/fltsearch.html?triptype=single&deptcity={0}&deptcity_code={1}&deptdate={2}&currency=CNY&arrcity={3}&arrcity_code={4}&cdate=specific"
+    },
+    {
+      "id": "16",
+      "code": "DZ",
+      "name": "东海",
+      "url": "http://b2c.donghaiair.com/dz/main.jsp"
+    }
+  ]
+}

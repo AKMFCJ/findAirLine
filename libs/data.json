@@ -1,0 +1,18 @@
+// 1 CA 国航 http://www.airchina.com.cn/cn/index.shtml
+// 2 HU 海航 http://new.hnair.com/hainanair/ibe/common/flightSearch.do
+// 3 MU 东航 http://www.ceair.com/booking/{0}-{1}-{2}_CNY.html
+// 4 CZ 南航 http://b2c.csair.com/B2C40/modules/bookingnew/main/flightSelectDirect.html?t=S&c1={0}&c2={1}&d1={2}&at=1&ct=0&it=0
+// 5 ZH 深圳 http://www.shenzhenair.com
+// 6 MF 厦门 https://et.xiamenair.com/xiamenair/book/findFlights.action?lang=zh&tripType=0&queryFlightInfo={0},{1},{2}
+// 7 EU 成都 http://b2c.cdal.com.cn/euair/page/reservation/flightQuery.jsp
+// 8 JD 首都 http://www.jdair.net/b2c-flight/searchflight.action?&tripType=OW&orgCity={0}&dstCity={1}&flightDate={2}&returnDate=
+// 9 HO 吉祥 http://www.juneyaoair.com/pages/Flight/flight.aspx?flightType=OW&sendCity={0}&sendCode={1}&arrCity={2}&arrCode={3}&directType=N&tripType=D&departureDate={4}&returnDate={4}
+// 10 8L 祥鹏 http://www.luckyair.net
+// 11 BK 奥凯 http://bk.travelsky.com/bkair/index.jsp
+// 12 9C 春秋 https://flights.ch.com/SHA-KMG.html?Departure={0}&Arrival={1}&FDate={2}&RetDate={3}&ANum=1&CNum=0&INum=0&MType=0&IfRet=false&SType=01&IsEmployee=false&isBg=false&IsJC=false
+// 13 3U 四川 http://www.sichuanair.com/3uair/ibe/common/homeRedirect.do
+// 14 GJ 长龙 https://www.loongair.cn/ETicket/AirlineList.html
+// 15 AQ 九元 http://www.9air.com/fltsearch.html?triptype=single&deptcity={0}&deptcity_code={1}&deptdate={2}&currency=CNY&arrcity={3}&arrcity_code={4}&cdate=specific
+// 16 DZ 东海 http://b2c.donghaiair.com/dz/main.jsp
+
+
