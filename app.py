@@ -11,6 +11,7 @@ from datetime import datetime
 from libs.DB import DBOption
 from airlineSpider.ceair import ceair_fligth
 from airlineSpider.csair import csair_fligth
+from airlineSpider.xiamenair import xiamenair_fligth
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -56,14 +57,23 @@ def main():
         # fligth_insert_sql = "INSERT INTO flight (id, name, org_city, dst_city, category, start_date, end_date, duration, price, detail_info) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         # db_option.insert_data(fligth_insert_sql, ceair_fligth_info)
 
-    # 南京航空
-    flight_name, fligth_info, price = csair_fligth(org_city_code, dst_city_code, flight_date)
+    # 南方航空
+    # flight_name, fligth_info, price = csair_fligth(org_city_code, dst_city_code, flight_date)
+    # if fligth_info:
+    #     fligth_info = fligth_info.split('\n')
+    #     csair_fligth_info = [(flight_count, flight_name, org_city, dst_city, fligth_info[2], str(flight_date),
+    #                           str(flight_date), '', price, ' '.join(fligth_info))]
+    #     fligth_insert_sql = "INSERT INTO flight (id, name, org_city, dst_city, category, start_date, end_date, duration, price, detail_info) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    #     db_option.insert_data(fligth_insert_sql, csair_fligth_info)
+
+    # 厦门航空
+    flight_name, fligth_info, price = xiamenair_fligth(org_city_code, dst_city_code, flight_date)
     if fligth_info:
         fligth_info = fligth_info.split('\n')
-        csair_fligth_info = [(flight_count, flight_name, org_city, dst_city, fligth_info[2], str(flight_date),
+        xiamenair_fligth_info = [(flight_count, flight_name, org_city, dst_city, fligth_info[2], str(flight_date),
                               str(flight_date), '', price, ' '.join(fligth_info))]
         fligth_insert_sql = "INSERT INTO flight (id, name, org_city, dst_city, category, start_date, end_date, duration, price, detail_info) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        db_option.insert_data(fligth_insert_sql, csair_fligth_info)
+        db_option.insert_data(fligth_insert_sql, xiamenair_fligth_info)
 
     db_option.close()
 
