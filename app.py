@@ -14,6 +14,7 @@ from airlineSpider.csair import csair_flight
 from airlineSpider.xiamenair import xiamenair_flight
 from airlineSpider.jdair import jdair_flight
 from airlineSpider.juneyaoair import juneyaoair_flight
+from airlineSpider.chuqiuair import chuqiuair_flight
 
 
 reload(sys)
@@ -103,8 +104,17 @@ def main():
         db_option.insert_data(fligth_insert_sql, xiamenair_fligth_info)
         flight_count += 1
 
-    db_option.close()
+    # 春秋航空
+    flight_name, flight_info, price = chuqiuair_flight(org_city_code, org_city_code, org_city, dst_city, flight_date)
+    if flight_info:
+        flight_info = flight_info.split('\n')
+        xiamenair_fligth_info = [(flight_count, flight_name, org_city, dst_city, flight_info[2], str(flight_date),
+                              str(flight_date), '', price, ' '.join(flight_info))]
+        fligth_insert_sql = "INSERT INTO flight (id, name, org_city, dst_city, category, start_date, end_date, duration, price, detail_info) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        db_option.insert_data(fligth_insert_sql, xiamenair_fligth_info)
+        flight_count += 1
 
+    db_option.close()
 
 
 if __name__ == '__main__':
