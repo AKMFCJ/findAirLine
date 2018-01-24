@@ -18,10 +18,14 @@ def xiamenair_fligth(org_city, dst_city, flight_date):
     browser = webdriver.Chrome('/Users/roy/Downloads/tmp/chromedriver')
     browser.implicitly_wait(20)
     browser.get(airline_url)
-    # from_city = browser.find_element_by_xpath('//input[@class="input big city _display"]')
-    # flight_list = browser.find_elements_by_css_selector("ul.basic-info")
 
-    flight_list = browser.find_elements_by_xpath('//div[@class="form-mess-inner segment-info bor-d1-bd"]')
+    try:
+        flight_list = browser.find_elements_by_xpath('//div[@class="form-mess-inner segment-info bor-d1-bd"]')
+    except Exception as err:
+        browser.quit()
+        print err
+        print u'没有%s当日的航班信息' % flight_date
+        return '', '', ''
 
     cheapest_flight = None
     cheapest_price = ''
@@ -38,7 +42,10 @@ def xiamenair_fligth(org_city, dst_city, flight_date):
                 cheapest_price = price
 
     if cheapest_flight:
-        return cheapest_flight.text.split('\n')[0], cheapest_flight.text, cheapest_price
+        cheapest_flight_text = cheapest_flight.text
+        browser.quit()
+        return cheapest_flight_text.split('\n')[0], cheapest_flight_text, cheapest_price
+    browser.quit()
     return '', '', ''
 
 

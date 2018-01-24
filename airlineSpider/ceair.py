@@ -16,10 +16,30 @@ def ceair_fligth(org_city, dst_city, flight_date):
     # from_city = browser.find_element_by_xpath('//input[@class="input big city _display"]')
     # flight_list = browser.find_elements_by_css_selector("ul.basic-info")
 
-    flight_list = browser.find_elements_by_xpath('//ul[@class="basic-info"]')
+    try:
+        flight_list = browser.find_elements_by_xpath('//ul[@class="basic-info"]')
+    except Exception as err:
+        browser.quit()
+        print err
+        print u'没有%s当日的航班信息' % flight_date
+        return ''
+
+    cheapest_price = ''
     fligth_info = []
     for item in flight_list[0].text.split('\n'):
         if item.strip():
             fligth_info.append(item.strip())
 
-    return ''.join(fligth_info)
+    if fligth_info[-1].startswith('— —'):
+        if fligth_info[-2].startswith('— —'):
+            cheapest_price = fligth_info[-3]
+        else:
+            cheapest_price = fligth_info[-2]
+    else:
+        cheapest_price = fligth_info[-1]
+
+    if not cheapest_price.find('— —') >= 0:
+        cheapest_price = cheapest_price.split(' ')[1].replace(',', '')
+
+    browser.quit()
+    return ''.join(fligth_info), cheapest_price

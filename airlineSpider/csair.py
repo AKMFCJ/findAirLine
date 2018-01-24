@@ -18,7 +18,13 @@ def csair_fligth(org_city_code, dst_city_code, flight_date):
     browser.implicitly_wait(30)
     browser.get(airline_url)
 
-    flight_div = browser.find_element_by_xpath('//div[@class="sp-trip-body"]')
+    try:
+        flight_div = browser.find_element_by_xpath('//div[@class="sp-trip-body"]')
+    except Exception as err:
+        browser.quit()
+        print err
+        print u'没有%s当日的航班信息' % flight_date
+        return '', '', ''
     flight_list = flight_div.find_elements_by_tag_name('ul')
 
     cheapest_flight = None
@@ -34,9 +40,11 @@ def csair_fligth(org_city_code, dst_city_code, flight_date):
             cheapest_price = price
 
     if cheapest_flight:
-        cheapest_flight.find_element_by_class_name('detail-trigger').click()
-        return cheapest_flight.find_elements_by_class_name('flight-code')[0].text, cheapest_flight.text, cheapest_price
+        cheapest_flight_text = cheapest_flight.text
+        browser.quit()
+        return '', cheapest_flight_text, cheapest_price
 
+    browser.quit()
     return '', '', ''
 
 
