@@ -6,7 +6,7 @@
 from selenium import webdriver
 
 
-def ceair_fligth(org_city, dst_city, flight_date):
+def ceair_flight(org_city, dst_city, flight_date):
     airline_url = 'http://www.ceair.com/booking/{0}-{1}-{2}_CNY.html'.format(org_city, dst_city, flight_date)
     print(airline_url)
 

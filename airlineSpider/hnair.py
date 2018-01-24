@@ -14,7 +14,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-def hnair_fligth(org_city, dst_city, flight_date):
+def hnair_flight(org_city, dst_city, flight_date):
     """
 
     @param org_city: 出发城市编码

@@ -9,9 +9,10 @@ import sys
 import argparse
 from datetime import datetime
 from libs.DB import DBOption
-from airlineSpider.ceair import ceair_fligth
-from airlineSpider.csair import csair_fligth
-from airlineSpider.xiamenair import xiamenair_fligth
+from airlineSpider.ceair import ceair_flight
+from airlineSpider.csair import csair_flight
+from airlineSpider.xiamenair import xiamenair_flight
+from airlineSpider.jdair import jdair_flight
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -50,7 +51,7 @@ def main():
     flight_count += 1
 
     # 东方航空
-    flight_info, price =  ceair_fligth(org_city_code.lower(), dst_city_code.lower(), datetime.strptime(flight_date, '%Y-%m-%d').strftime('%y%m%d'))
+    flight_info, price =  ceair_flight(org_city_code.lower(), dst_city_code.lower(), datetime.strptime(flight_date, '%Y-%m-%d').strftime('%y%m%d'))
     if flight_info:
         flight_info = flight_info.split(' ')
         ceair_fligth_info = [(flight_count, flight_info[1][:-1],org_city,dst_city, flight_info[2], str(flight_date), str(flight_date), '', price, ' '.join(flight_info))]
@@ -59,7 +60,7 @@ def main():
         flight_count += 1
 
     # 南方航空
-    flight_name, flight_info, price = csair_fligth(org_city_code, dst_city_code, flight_date)
+    flight_name, flight_info, price = csair_flight(org_city_code, dst_city_code, flight_date)
     if flight_info:
         flight_info = flight_info.split('\n')
         if flight_info[2].strip().startswith('CZ'):
@@ -71,7 +72,17 @@ def main():
         flight_count += 1
 
     # 厦门航空
-    flight_name, flight_info, price = xiamenair_fligth(org_city_code, dst_city_code, flight_date)
+    flight_name, flight_info, price = xiamenair_flight(org_city_code, dst_city_code, flight_date)
+    if flight_info:
+        flight_info = flight_info.split('\n')
+        xiamenair_fligth_info = [(flight_count, flight_name, org_city, dst_city, flight_info[2], str(flight_date),
+                              str(flight_date), '', price, ' '.join(flight_info))]
+        fligth_insert_sql = "INSERT INTO flight (id, name, org_city, dst_city, category, start_date, end_date, duration, price, detail_info) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        db_option.insert_data(fligth_insert_sql, xiamenair_fligth_info)
+        flight_count += 1
+
+    # 首都航空
+    flight_name, flight_info, price = jdair_flight(org_city_code, dst_city_code, flight_date)
     if flight_info:
         flight_info = flight_info.split('\n')
         xiamenair_fligth_info = [(flight_count, flight_name, org_city, dst_city, flight_info[2], str(flight_date),

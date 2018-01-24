@@ -11,7 +11,8 @@ from selenium import webdriver
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
 
-def xiamenair_fligth(org_city, dst_city, flight_date):
+
+def xiamenair_flight(org_city, dst_city, flight_date):
     airline_url = 'https://et.xiamenair.com/xiamenair/book/findFlights.action?lang=zh&tripType=0&queryFlightInfo={0},{1},{2}'.format(org_city, dst_city, flight_date)
     print(airline_url)
 

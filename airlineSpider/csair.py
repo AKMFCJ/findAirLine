@@ -10,7 +10,7 @@ http://b2c.csair.com/B2C40/modules/bookingnew/main/flightSelectDirect.html?t=S&c
 from selenium import webdriver
 
 
-def csair_fligth(org_city_code, dst_city_code, flight_date):
+def csair_flight(org_city_code, dst_city_code, flight_date):
     airline_url = 'http://b2c.csair.com/B2C40/modules/bookingnew/main/flightSelectDirect.html?t=S&c1={0}&c2={1}&d1={2}&at=1&ct=0&it=0'.format(org_city_code, dst_city_code, flight_date)
     print(airline_url)
 
